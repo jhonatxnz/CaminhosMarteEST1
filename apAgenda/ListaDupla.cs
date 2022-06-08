@@ -435,4 +435,5 @@ class ListaDupla<Dado> : IDados<Dado>
         this.ultimo = ordenada.ultimo;
         this.quantosNos = ordenada.quantosNos;
     }
+
 }

@@ -3,15 +3,14 @@ using System.IO;
 
 internal class Ligacao : IComparable<Ligacao>, IRegistro<Ligacao>
 {
-    const int tamCodigoOri = 3,
-              tamCodigoDest = 3,
-              tamDistancia = 5,
-              tamTempo = 4,
-              tamCusto = 5;
+    const int tamCodigo = 3,
+          tamDistancia = 5,
+          tamTempo = 4,
+          tamCusto = 4;
 
     const int iniCodigoOrigem = 0,
-              iniCodigoDestino = iniCodigoOrigem + tamCodigoOri,
-              iniDistancia = iniCodigoDestino + tamCodigoDest,
+              iniCodigoDestino = iniCodigoOrigem + tamCodigo,
+              iniDistancia = iniCodigoDestino + tamCodigo,
               iniTempo = iniDistancia + tamDistancia,
               iniCusto = iniTempo + tamTempo;
 
@@ -45,8 +44,8 @@ internal class Ligacao : IComparable<Ligacao>, IRegistro<Ligacao>
         if (arquivo != null) // arquivo aberto?
         {
             string linha = arquivo.ReadLine();
-            IdCidadeOrigem = linha.Substring(iniCodigoOrigem, tamCodigoOri);
-            IdCidadeDestino = linha.Substring(iniCodigoDestino, tamCodigoDest);
+            IdCidadeOrigem = linha.Substring(iniCodigoOrigem, tamCodigo);
+            IdCidadeDestino = linha.Substring(iniCodigoDestino, tamCodigo);
             Distancia = int.Parse(linha.Substring(iniDistancia, tamDistancia));
             Tempo = int.Parse(linha.Substring(iniTempo, tamTempo));
             Custo = int.Parse(linha.Substring(iniCusto, tamCusto));

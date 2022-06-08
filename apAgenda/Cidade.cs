@@ -64,7 +64,7 @@ namespace apCaminhos
 
         public override string ToString()
         {
-            return Codigo + " " + Nome + " " + X.ToString().PadLeft(tamX, ' ') + Y.ToString().PadLeft(tamY, ' ');
+            return Nome + "";
         }
     }
 }

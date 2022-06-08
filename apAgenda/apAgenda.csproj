@@ -53,11 +53,13 @@
     <Compile Include="FrmCaminhos.Designer.cs">
       <DependentUpon>FrmCaminhos.cs</DependentUpon>
     </Compile>
+    <Compile Include="GrafoBacktracking.cs" />
     <Compile Include="IDados.cs" />
     <Compile Include="IRegistro.cs" />
     <Compile Include="Ligacao.cs" />
     <Compile Include="ListaDupla.cs" />
     <Compile Include="NoDuplo.cs" />
+    <Compile Include="PilhaLista.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmCaminhos.resx">

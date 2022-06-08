@@ -397,6 +397,7 @@
             this.btnCaminhos.TabIndex = 45;
             this.btnCaminhos.Text = "Achar caminhos";
             this.btnCaminhos.UseVisualStyleBackColor = true;
+            this.btnCaminhos.Click += new System.EventHandler(this.btnCaminhos_Click);
             // 
             // udCusto
             // 
