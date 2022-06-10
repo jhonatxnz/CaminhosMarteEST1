@@ -1,8 +1,7 @@
 ﻿using System;
 
 class NoDuplo<Dado>
-    where Dado : IComparable<Dado>,
-                    IRegistro<Dado>//talvez tirar
+    where Dado : IComparable<Dado>
 {
     NoDuplo<Dado> ant;
     Dado info; // informação guardada no nó da lista

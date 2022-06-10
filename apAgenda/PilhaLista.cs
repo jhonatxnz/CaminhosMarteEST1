@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
+
 public class PilhaLista<Dado> : IStack<Dado> where Dado : IComparable<Dado>
 {
-    NoLista<Dado> topo;
+    NoDuplo<Dado> topo;
     int tamanho;
+
     public PilhaLista() // construtor
     {
         topo = null;
@@ -14,7 +17,7 @@ public class PilhaLista<Dado> : IStack<Dado> where Dado : IComparable<Dado>
     public void Empilhar(Dado o)
     {
         // Instancia um nó, coloca o Dado o nele e o liga ao antigo topo da pilha
-        NoLista<Dado> novoNo = new NoLista<Dado>(o, topo);
+        NoDuplo<Dado> novoNo = new NoDuplo<Dado>(o);
         topo = novoNo; // topo passa a apontar o novo nó
         tamanho++; // atualiza número de elementos na pilha
     }
@@ -38,7 +41,7 @@ public class PilhaLista<Dado> : IStack<Dado> where Dado : IComparable<Dado>
     {
         List<Dado> lista = new List<Dado>();
 
-        NoLista<Dado> atual = topo;
+        NoDuplo<Dado> atual = topo;
         while (atual != null)
         {
             lista.Add(atual.Info);
@@ -46,4 +49,7 @@ public class PilhaLista<Dado> : IStack<Dado> where Dado : IComparable<Dado>
         }
         return lista;
     }
+
+    
+
 }

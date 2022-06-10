@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-internal class Ligacao : IComparable<Ligacao>, IRegistro<Ligacao>
+internal class Ligacao : IComparable<Ligacao>
 {
     const int tamCodigo = 3,
           tamDistancia = 5,
