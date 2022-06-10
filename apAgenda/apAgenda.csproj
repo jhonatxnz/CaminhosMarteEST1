@@ -56,8 +56,10 @@
     <Compile Include="GrafoBacktracking.cs" />
     <Compile Include="IDados.cs" />
     <Compile Include="IRegistro.cs" />
+    <Compile Include="IStack.cs" />
     <Compile Include="Ligacao.cs" />
     <Compile Include="ListaDupla.cs" />
+    <Compile Include="Movimento.cs" />
     <Compile Include="NoDuplo.cs" />
     <Compile Include="PilhaLista.cs" />
     <Compile Include="Program.cs" />

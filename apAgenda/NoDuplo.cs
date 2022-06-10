@@ -2,7 +2,7 @@
 
 class NoDuplo<Dado>
     where Dado : IComparable<Dado>,
-                    IRegistro<Dado>
+                    IRegistro<Dado>//talvez tirar
 {
     NoDuplo<Dado> ant;
     Dado info; // informação guardada no nó da lista

@@ -64,7 +64,7 @@ namespace apCaminhos
 
         public override string ToString()
         {
-            return Nome + "";
+            return Nome;
         }
     }
 }
