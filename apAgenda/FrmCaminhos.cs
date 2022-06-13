@@ -14,6 +14,7 @@ namespace apCaminhos
     {
         ListaDupla<Cidade> cidades;     //instanciamos a classe para utilizar seus metódos
         ListaDupla<Ligacao> caminhos;   //instanciamos a classe para utilizar seus metódo
+        GrafoBackTracking oGrafo;   //instanciamos a classe para utilizar seus metódo
         public FrmCaminhos()
         {
             InitializeComponent();
@@ -71,7 +72,22 @@ namespace apCaminhos
 
         private void btnCaminhos_Click(object sender, EventArgs e)
         {
-
+            int origem = int.Parse(cbxOrigem.Text);
+            int destino = int.Parse(cbxDestino.Text);
+            var pilhaCaminho = oGrafo.BuscarCaminho(origem, destino,  dgvMelhorCaminho,
+            dgvCaminhosEncontrados);
+            if (pilhaCaminho.EstaVazia)
+                MessageBox.Show("Não achou caminho");
+            else
+            {
+                MessageBox.Show("Achou caminho");
+                oGrafo.Exibir(dgvMelhorCaminho);
+                
+                while (!pilhaCaminho.EstaVazia)
+                {
+                    var mov = pilhaCaminho.Desempilhar();
+                }
+            }
         }
     }
 }

@@ -46,8 +46,8 @@ namespace apCaminhos
         }
 
         public PilhaLista<Movimento> BuscarCaminho(int origem, int destino, ListBox lsb,
-DataGridView dgvGrafo,
-DataGridView dgvPilha)
+      DataGridView dgvGrafo,
+      DataGridView dgvPilha)
 
         {
             int cidadeAtual, saidaAtual;
@@ -57,7 +57,6 @@ DataGridView dgvPilha)
             // inicia os valores de “passou” pois ainda não foi em nenhuma cidade
             for (int indice = 0; indice < qtasCidades; indice++)
                 passou[indice] = false;
-            lsb.Items.Clear();
             cidadeAtual = origem;
             saidaAtual = 0;
             var pilha = new PilhaLista<Movimento>();
@@ -75,8 +74,8 @@ DataGridView dgvPilha)
                         if (matriz[cidadeAtual, saidaAtual] == 0)
                             saidaAtual++;
                         else
-                        // se já passou pela cidade testada, vê se a próxima cidade permite saída
-                        if (passou[saidaAtual])
+// se já passou pela cidade testada, vê se a próxima cidade permite saída
+if (passou[saidaAtual])
                             saidaAtual++;
                         else
                         // se chegou na cidade desejada, empilha o local
@@ -133,7 +132,7 @@ DataGridView dgvPilha)
             {
 
                 dgvGrafo.CurrentCell = dgvGrafo[saidaAtual, cidadeAtual];
-                pilha.Exibir(dgvPilha);
+                Exibir(dgvPilha);
                 Thread.Sleep(1000);
             }
         }
