@@ -45,7 +45,7 @@ namespace apCaminhos
                         dgv[coluna, linha].Value = matriz[linha, coluna];
         }
 
-        public PilhaLista<Movimento> BuscarCaminho(int origem, int destino, ListBox lsb,
+        public PilhaLista<Movimento> BuscarCaminho(int origem, int destino,
       DataGridView dgvGrafo,
       DataGridView dgvPilha)
 
@@ -88,13 +88,11 @@ if (passou[saidaAtual])
                             pilha.Empilhar(movim);
                             achouCaminho = true;
 
-                            lsb.Items.Add($"Saiu de {cidadeAtual} para {saidaAtual}");
                             ExibirUmPasso();
                         }
                         else
                         {
 
-                            lsb.Items.Add($"Saiu de {cidadeAtual} para {saidaAtual}");
                             ExibirUmPasso();
                             Movimento movim = new Movimento(cidadeAtual, saidaAtual);
                             pilha.Empilhar(movim);
@@ -112,7 +110,6 @@ if (passou[saidaAtual])
                         var movim = pilha.Desempilhar();
                         saidaAtual = movim.Destino;
                         cidadeAtual = movim.Origem;
-                        lsb.Items.Add($"Voltando de {saidaAtual} para {cidadeAtual}");
                         ExibirUmPasso();
                         saidaAtual++;
                     }

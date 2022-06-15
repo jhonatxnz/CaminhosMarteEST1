@@ -78,6 +78,7 @@
             this.cbxDestino = new System.Windows.Forms.ComboBox();
             this.cbxOrigem = new System.Windows.Forms.ComboBox();
             this.lbKmCaminhoSelecionado = new System.Windows.Forms.Label();
+            this.dlgAbrirCaminhos = new System.Windows.Forms.OpenFileDialog();
             this.statusStrip1.SuspendLayout();
             this.Caminhos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMarte)).BeginInit();
@@ -498,6 +499,11 @@
             this.lbKmCaminhoSelecionado.TabIndex = 48;
             this.lbKmCaminhoSelecionado.Text = "Km do caminho selecionado: (xxxxx km)";
             // 
+            // dlgAbrirCaminhos
+            // 
+            this.dlgAbrirCaminhos.DefaultExt = "*.txt";
+            this.dlgAbrirCaminhos.InitialDirectory = "c:\\temp";
+            // 
             // FrmCaminhos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -590,6 +596,7 @@
     private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
     private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
     private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-  }
+        private System.Windows.Forms.OpenFileDialog dlgAbrirCaminhos;
+    }
 }
 

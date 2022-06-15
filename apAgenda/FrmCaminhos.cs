@@ -37,18 +37,23 @@ namespace apCaminhos
             foreach (ToolStripItem item in Caminhos.Items)
                 if (item is ToolStripButton)
                     (item as ToolStripButton).ImageIndex = indice++;
+
             cidades = new ListaDupla<Cidade>();
             if (dlgAbrir.ShowDialog() == DialogResult.OK)
             {
                 cidades.LerDados(dlgAbrir.FileName);    //le os dados do arquivo que o usuario escolheu
                 cidades.ExibirDados(cbxOrigem);         //exibe  os dados nos cbxDestino
                 cidades.ExibirDados(cbxDestino);        //exibe  os dados nos cbxDestino
+
             }
             caminhos = new ListaDupla<Ligacao>();
-            if (dlgAbrir.ShowDialog() == DialogResult.OK)
+            if (dlgAbrirCaminhos.ShowDialog() == DialogResult.OK)
             {
-                caminhos.LerDados(dlgAbrir.FileName);    //le os dados do arquivo que o usuario escolheu
+                caminhos.LerDados(dlgAbrirCaminhos.FileName);    //le os dados do arquivo que o usuario escolheu
+                oGrafo = new GrafoBackTracking(dlgAbrir.FileName);
+
             }
+
         }
 
         private void pbMarte_Paint(object sender, PaintEventArgs e)
