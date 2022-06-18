@@ -11,11 +11,12 @@ namespace apCaminhos
         char tipoGrafo;
         int qtasCidades;
         int[,] matriz;
-        public GrafoBackTracking(string nomeArquivo)
+        public GrafoBackTracking(string nomeArquivo,int qtasCidades)
         {
             var arquivo = new StreamReader(nomeArquivo);
             tipoGrafo = arquivo.ReadLine()[0]; // acessa primeiro caracter com tipo do grafo
-            qtasCidades = int.Parse(arquivo.ReadLine());
+            qtasCidades = qtasCidades;
+            //qtasCidades = LeLinhas();
             matriz = new int[qtasCidades, qtasCidades];
             for (int linha = 0; linha < qtasCidades; linha++)
             {
@@ -25,8 +26,22 @@ namespace apCaminhos
 
                     int.Parse(arestas.Substring(coluna * tamanhoDistancia, tamanhoDistancia));
 
+         
             }
+            //int LeLinhas()
+            //{
+            //    TextReader Leitor = new StreamReader(nomeArquivo, true);//Inicializa o Leitor
+            //    int Linhas = 0;
+            //    while (Leitor.Peek() != -1)
+            //    {//Enquanto o arquivo não acabar, o Peek não retorna -1 sendo adequando para o loop while...
+            //        Linhas++;//Incrementa 1 na contagem
+            //        Leitor.ReadLine();//Avança uma linha no arquivo
+            //    }
+            //    Leitor.Close(); //Fecha o Leitor, dando acesso ao arquivo para outros programas....
+            //    return Linhas;
+            //}
         }
+         
         public char TipoGrafo { get => tipoGrafo; set => tipoGrafo = value; }
         public int QtasCidades { get => qtasCidades; set => qtasCidades = value; }
         public int[,] Matriz { get => matriz; set => matriz = value; }

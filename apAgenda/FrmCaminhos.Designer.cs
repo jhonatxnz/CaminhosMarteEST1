@@ -30,7 +30,7 @@
     {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCaminhos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.slMensagem = new System.Windows.Forms.ToolStripStatusLabel();
             this.imlBotoes = new System.Windows.Forms.ImageList(this.components);
@@ -78,7 +78,7 @@
             this.cbxDestino = new System.Windows.Forms.ComboBox();
             this.cbxOrigem = new System.Windows.Forms.ComboBox();
             this.lbKmCaminhoSelecionado = new System.Windows.Forms.Label();
-            this.dlgAbrirCaminhos = new System.Windows.Forms.OpenFileDialog();
+            this.dlgAbrirDois = new System.Windows.Forms.OpenFileDialog();
             this.statusStrip1.SuspendLayout();
             this.Caminhos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMarte)).BeginInit();
@@ -384,8 +384,8 @@
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column1.HeaderText = "Passando por";
             this.Column1.Name = "Column1";
             this.Column1.Width = 132;
@@ -499,10 +499,10 @@
             this.lbKmCaminhoSelecionado.TabIndex = 48;
             this.lbKmCaminhoSelecionado.Text = "Km do caminho selecionado: (xxxxx km)";
             // 
-            // dlgAbrirCaminhos
+            // dlgAbrirDois
             // 
-            this.dlgAbrirCaminhos.DefaultExt = "*.txt";
-            this.dlgAbrirCaminhos.InitialDirectory = "c:\\temp";
+            this.dlgAbrirDois.DefaultExt = "*.txt";
+            this.dlgAbrirDois.InitialDirectory = "c:\\temp";
             // 
             // FrmCaminhos
             // 
@@ -531,7 +531,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmCaminhos";
-            this.Text = "Ligações e caminhos entre Cidades";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.FrmAgenda_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -596,7 +596,7 @@
     private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
     private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
     private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.OpenFileDialog dlgAbrirCaminhos;
+        private System.Windows.Forms.OpenFileDialog dlgAbrirDois;
     }
 }
 

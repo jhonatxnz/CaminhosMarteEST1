@@ -12,7 +12,7 @@ class NoDuplo<Dado>
         info = novoDado;
     }
 
-public Dado Info { get => info; set => info = value; }
-    internal NoDuplo<Dado> Ant { get => ant; set => ant = value; }
-    internal NoDuplo<Dado> Prox { get => prox; set => prox = value; }
+    public Dado Info { get => info; set => info = value; }
+    public NoDuplo<Dado> Prox { get => prox; set => prox = value; }
+    public NoDuplo<Dado> Ant { get => ant; set => ant = value; }
 }

@@ -50,6 +50,6 @@ public class PilhaLista<Dado> : IStack<Dado> where Dado : IComparable<Dado>
         return lista;
     }
 
-    
+
 
 }

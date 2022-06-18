@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace apCaminhos
 {
     class Movimento : IComparable<Movimento>
-    {// onde estou, para onde vou
+    {
+        // onde estou, para onde vou
         private int origem, destino;
         public Movimento(int or, int dest)
         {
@@ -25,25 +26,5 @@ namespace apCaminhos
         {
             return origem + " " + destino;
         }
-        //public Movimento LerRegistro(StreamReader arquivo) {
-        //    if (arquivo != null) // arquivo aberto?
-        //    {
-        //        string linha = arquivo.ReadLine();
-        //        Origem = int.Parse(linha.Substring(origem, destino));
-                
-        //        return this; // retorna o próprio objeto Contato, com os dados
-        //    }
-        //    return default(Movimento);
-        //}
-        //public string ParaArquivo()
-        //{
-        //    return origem + " " + destino;
-        //}
-        //public void GravarRegistro(StreamWriter arquivo) {
-        //    if (arquivo != null)  // arquivo de saída aberto?
-        //    {
-        //        arquivo.WriteLine(ParaArquivo());
-        //    }
-        //}
     }
 }

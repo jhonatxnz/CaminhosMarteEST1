@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-internal class Ligacao : IComparable<Ligacao>,IRegistro<Ligacao>
+internal class Ligacao : IComparable<Ligacao>, IRegistro<Ligacao>
 {
     const int tamCodigo = 3,
           tamDistancia = 5,
@@ -26,7 +26,10 @@ internal class Ligacao : IComparable<Ligacao>,IRegistro<Ligacao>
         this.tempo = tempo;
         this.custo = custo;
     }
+
+    //construtor vazio
     public Ligacao() { }
+
     public string IdCidadeOrigem { get => idCidadeOrigem; set => idCidadeOrigem = value; }
     public string IdCidadeDestino { get => idCidadeDestino; set => idCidadeDestino = value; }
     public int Distancia { get => distancia; set => distancia = value; }

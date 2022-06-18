@@ -30,7 +30,9 @@ namespace apCaminhos
             X = x;
             Y = y;
         }
+        //construtor vazio
         public Cidade() { }
+
         public int CompareTo(Cidade outro)
         {
             return codigo.ToUpperInvariant().CompareTo(outro.codigo.ToUpperInvariant());
@@ -64,7 +66,7 @@ namespace apCaminhos
 
         public override string ToString()
         {
-            return Codigo;
+            return Codigo + " " + Nome + " " + X.ToString().PadLeft(tamX, ' ') + Y.ToString().PadLeft(tamY, ' ');
         }
     }
 }

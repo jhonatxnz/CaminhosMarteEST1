@@ -4,8 +4,7 @@ using System;
 using System.IO;
 using System.Windows.Forms;
 
-class ListaDupla<Dado> : IDados<Dado>
-                where Dado : IComparable<Dado>, IRegistro<Dado>, new()
+class ListaDupla<Dado> : IDados<Dado> where Dado : IComparable<Dado>, IRegistro<Dado>, new()
 {
     NoDuplo<Dado> primeiro, ultimo, atual;
     int quantosNos;
@@ -30,7 +29,7 @@ class ListaDupla<Dado> : IDados<Dado>
             {
                 return ondeEsta; // retorna onde ela esta 
             }
-            else 
+            else
                 return -1;       // retorna posição inexistente
         }
         set => PosicionarEm(value); //muda posição passada como parâmetro
@@ -94,7 +93,7 @@ class ListaDupla<Dado> : IDados<Dado>
             atual = primeiro;   //posiciona atual no primeiro nó
     }
     public void RetrocederPosicao()        // Retroceder atual para o nó anterior para ser acessado
-    {   
+    {
         if (!EstaVazio)         //se a lista no está vaziaz
             atual = atual.Ant;  //posiciona atual no nó anterior do atual
     }
@@ -167,7 +166,7 @@ class ListaDupla<Dado> : IDados<Dado>
             // se não chegou ao final da lista, verifica o valor da chave atual
             else
             // verifica igualdade entre chave procurada e chave do nó atual
-            
+
             if (procurado.CompareTo(atual.Info) == 0)
             {
                 achou = true;
@@ -198,7 +197,7 @@ class ListaDupla<Dado> : IDados<Dado>
     }                   // se a chave procurada foi ou não encontrado
     public bool Excluir(Dado dadoAExcluir)  //CORRIGIR
     {
-        
+
 
         if (Existe(dadoAExcluir, out _))
         {
@@ -227,7 +226,7 @@ class ListaDupla<Dado> : IDados<Dado>
                     atual.Prox.Ant = atual.Ant; // o proximo no do anterior aponta para o anterior do atual
                 }
             }
-               
+
             quantosNos--; //decrementa a quantidade de nós
             AvancarPosicao(); //posiciona no ultimo
             return true; //exclusão bem sucedida 
@@ -237,7 +236,7 @@ class ListaDupla<Dado> : IDados<Dado>
 
     public bool IncluirNoInicio(Dado novoValor)
     {
-      
+
         if (novoValor == null)  // se o novoValor for nulo
             return false;       //retorna falso
 
@@ -257,7 +256,7 @@ class ListaDupla<Dado> : IDados<Dado>
     }
     public bool IncluirAposFim(Dado novoValor)
     {
-        
+
         if (novoValor == null) // se o novoValor for nulo
             return false;      //retorna falso
 
@@ -340,7 +339,7 @@ class ListaDupla<Dado> : IDados<Dado>
                 throw new Exception("Indice fora dos valores permitidos"); //dispara exceção
             }
 
-            else 
+            else
             {
                 PosicionarEm(indice); //posiciona no valor do índice 
                 return DadoAtual();//Retorna o DadoAtual 
