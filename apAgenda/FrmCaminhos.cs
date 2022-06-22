@@ -93,13 +93,21 @@ namespace apCaminhos
 
                 int celula = 0;
 
+                var pilhaInvertida = new PilhaVetor<Movimento>();
+
                 foreach (var movimento in pilhaCaminho.DadosDaPilha())
                 {
+                   pilhaInvertida.Empilhar(pilhaCaminho.Desempilhar());
+
                    cidades.PosicionarEm(movimento.Origem);
-                    dgvCaminhosEncontrados.Rows[0].Cells[celula++].Value = cidades.DadoAtual().Nome;
+                   dgvCaminhosEncontrados.Rows[0].Cells[celula++].Value = cidades.DadoAtual().Nome;
+
                 }
+
                 cidades.PosicionarEm(destino);
                 dgvCaminhosEncontrados.Rows[0].Cells[celula].Value = cidades.DadoAtual().Nome;
+
+
             }
         }
     }
