@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace apCaminhos
@@ -73,7 +67,7 @@ namespace apCaminhos
                 e.Graphics.DrawString(cidade.Nome, font, Brushes.Black, x, y + 10);
                 //udX.Text = x.ToString();
                 //udY.Text = y.ToString();
-                Pen redPen = new Pen(Color.Red, 1);
+                Pen redPen = new Pen(Color.Purple, 2);
                 e.Graphics.DrawLine(redPen, (int)(cidade.X), (int)(cidade.Y), x,y);
 
                 cidades.AvancarPosicao(); //avança posicão
@@ -87,9 +81,8 @@ namespace apCaminhos
             int origem = int.Parse(cbxOrigem.Text.Substring(0, 3));
             int destino = int.Parse(cbxDestino.Text.Substring(0, 3));
 
+            var pilhaCaminho = oGrafo.BuscarCaminho(origem, destino, dgvMelhorCaminho, dgvCaminhosEncontrados);
 
-            var pilhaCaminho = oGrafo.BuscarCaminho(origem, destino, dgvMelhorCaminho,
-            dgvCaminhosEncontrados);
             if (pilhaCaminho.EstaVazia)
             {
                 MessageBox.Show("Não achou caminho");
@@ -97,11 +90,15 @@ namespace apCaminhos
             else
             {
                 MessageBox.Show("Achou caminho");
-                oGrafo.Exibir(dgvCaminhosEncontrados);
-                while (!pilhaCaminho.EstaVazia)
+
+                int celula = 0;
+
+                foreach (var movimento in pilhaCaminho.DadosDaPilha())
                 {
-                    var mov = pilhaCaminho.Desempilhar();
+                    dgvCaminhosEncontrados.Rows[0].Cells[celula++].Value = movimento.Origem;
                 }
+
+                dgvCaminhosEncontrados.Rows[0].Cells[celula].Value = destino;
             }
         }
     }

@@ -51,3 +51,14 @@ C:\Users\u21686\Desktop\CaminhosMarteEST1\apAgenda\obj\Debug\apAgenda.csproj.Gen
 C:\Users\u21686\Desktop\CaminhosMarteEST1\apAgenda\obj\Debug\apAgenda.csproj.CoreCompileInputs.cache
 C:\Users\u21686\Desktop\CaminhosMarteEST1\apAgenda\obj\Debug\apCaminhos.exe
 C:\Users\u21686\Desktop\CaminhosMarteEST1\apAgenda\obj\Debug\apCaminhos.pdb
+C:\Users\u21694\Documents\CHICO\CaminhosMarteEST1\apAgenda\bin\Debug\apCaminhos.exe.config
+C:\Users\u21694\Documents\CHICO\CaminhosMarteEST1\apAgenda\bin\Debug\apCaminhos.exe
+C:\Users\u21694\Documents\CHICO\CaminhosMarteEST1\apAgenda\bin\Debug\apCaminhos.pdb
+C:\Users\u21694\Documents\CHICO\CaminhosMarteEST1\apAgenda\obj\Debug\apAgenda.csproj.AssemblyReference.cache
+C:\Users\u21694\Documents\CHICO\CaminhosMarteEST1\apAgenda\obj\Debug\apAgenda.csproj.SuggestedBindingRedirects.cache
+C:\Users\u21694\Documents\CHICO\CaminhosMarteEST1\apAgenda\obj\Debug\apCaminhos.FrmCaminhos.resources
+C:\Users\u21694\Documents\CHICO\CaminhosMarteEST1\apAgenda\obj\Debug\apCaminhos.Properties.Resources.resources
+C:\Users\u21694\Documents\CHICO\CaminhosMarteEST1\apAgenda\obj\Debug\apAgenda.csproj.GenerateResource.cache
+C:\Users\u21694\Documents\CHICO\CaminhosMarteEST1\apAgenda\obj\Debug\apAgenda.csproj.CoreCompileInputs.cache
+C:\Users\u21694\Documents\CHICO\CaminhosMarteEST1\apAgenda\obj\Debug\apCaminhos.exe
+C:\Users\u21694\Documents\CHICO\CaminhosMarteEST1\apAgenda\obj\Debug\apCaminhos.pdb

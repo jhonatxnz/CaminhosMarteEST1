@@ -61,7 +61,7 @@
     <Compile Include="ListaDupla.cs" />
     <Compile Include="Movimento.cs" />
     <Compile Include="NoDuplo.cs" />
-    <Compile Include="PilhaLista.cs" />
+    <Compile Include="PilhaVetor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmCaminhos.resx">

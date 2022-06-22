@@ -11,7 +11,7 @@ namespace apCaminhos
         char tipoGrafo;
         int qtasCidades;
         int[,] matriz;
-        public GrafoBackTracking(string nomeArquivo,int qtasCidades)
+        public GrafoBackTracking(string nomeArquivo, int qtasCidades)
         {
             var arquivo = new StreamReader(nomeArquivo);
             tipoGrafo = arquivo.ReadLine()[0]; // acessa primeiro caracter com tipo do grafo
@@ -26,7 +26,7 @@ namespace apCaminhos
 
                     int.Parse(arestas.Substring(coluna * tamanhoDistancia, tamanhoDistancia));
 
-         
+
             }
             //int LeLinhas()
             //{
@@ -45,9 +45,11 @@ namespace apCaminhos
         {
             matriz = new int[cidade.Tamanho, cidade.Tamanho];
 
+            QtasCidades = cidade.Tamanho;
+
             lig.PosicionarNoPrimeiro();
 
-            while(lig.DadoAtual() != null)
+            while (lig.DadoAtual() != null)
             {
                 matriz[int.Parse(lig.DadoAtual().IdCidadeOrigem),
                        int.Parse(lig.DadoAtual().IdCidadeDestino)] = lig.DadoAtual().Distancia;
@@ -60,7 +62,7 @@ namespace apCaminhos
         public char TipoGrafo { get => tipoGrafo; set => tipoGrafo = value; }
         public int QtasCidades { get => qtasCidades; set => qtasCidades = value; }
         public int[,] Matriz { get => matriz; set => matriz = value; }
-        public void Exibir(DataGridView dgv)
+        /* public void Exibir(DataGridView dgv)
         {
             dgv.RowCount = dgv.ColumnCount = qtasCidades;
             for (int coluna = 0; coluna < qtasCidades; coluna++)
@@ -73,11 +75,11 @@ namespace apCaminhos
                 for (int coluna = 0; coluna < qtasCidades; coluna++)
                     if (matriz[linha, coluna] != 0)
                         dgv[coluna, linha].Value = matriz[linha, coluna];
-        }
+        } */
 
-        public PilhaLista<Movimento> BuscarCaminho(int origem, int destino,
-      DataGridView dgvGrafo,
-      DataGridView dgvPilha)
+        public PilhaVetor<Movimento> BuscarCaminho(int origem, int destino,
+          DataGridView dgvGrafo,
+          DataGridView dgvPilha)
 
         {
             int cidadeAtual, saidaAtual;
@@ -89,23 +91,23 @@ namespace apCaminhos
                 passou[indice] = false;
             cidadeAtual = origem;
             saidaAtual = 0;
-            var pilha = new PilhaLista<Movimento>();
+            var pilha = new PilhaVetor<Movimento>(qtasCidades);
+
             while (!achouCaminho && !naoTemSaida)
             {
                 naoTemSaida = (cidadeAtual == origem && saidaAtual == qtasCidades && pilha.EstaVazia);
+
                 if (!naoTemSaida)
                 {
                     while ((saidaAtual < qtasCidades) && !achouCaminho)
                     {
                         // se não há saída pela cidade testada, verifica a próxima
 
-
-
                         if (matriz[cidadeAtual, saidaAtual] == 0)
                             saidaAtual++;
                         else
-// se já passou pela cidade testada, vê se a próxima cidade permite saída
-if (passou[saidaAtual])
+                        // se já passou pela cidade testada, vê se a próxima cidade permite saída
+                        if (passou[saidaAtual])
                             saidaAtual++;
                         else
                         // se chegou na cidade desejada, empilha o local
@@ -118,12 +120,9 @@ if (passou[saidaAtual])
                             pilha.Empilhar(movim);
                             achouCaminho = true;
 
-                            ExibirUmPasso();
                         }
                         else
                         {
-
-                            ExibirUmPasso();
                             Movimento movim = new Movimento(cidadeAtual, saidaAtual);
                             pilha.Empilhar(movim);
                             passou[cidadeAtual] = true;
@@ -140,11 +139,11 @@ if (passou[saidaAtual])
                         var movim = pilha.Desempilhar();
                         saidaAtual = movim.Destino;
                         cidadeAtual = movim.Origem;
-                        ExibirUmPasso();
                         saidaAtual++;
                     }
             }
-            var saida = new PilhaLista<Movimento>();
+
+            var saida = new PilhaVetor<Movimento>();
             if (achouCaminho)
             { // desempilha a configuração atual da pilha
               // para a pilha da lista de parâmetros
@@ -155,13 +154,6 @@ if (passou[saidaAtual])
                 }
             }
             return saida;
-            void ExibirUmPasso()
-            {
-
-                dgvGrafo.CurrentCell = dgvGrafo[saidaAtual, cidadeAtual];
-                Exibir(dgvPilha);
-                Thread.Sleep(1000);
-            }
         }
     }
 }
