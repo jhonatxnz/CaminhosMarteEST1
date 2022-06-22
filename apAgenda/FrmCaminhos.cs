@@ -95,10 +95,11 @@ namespace apCaminhos
 
                 foreach (var movimento in pilhaCaminho.DadosDaPilha())
                 {
-                    dgvCaminhosEncontrados.Rows[0].Cells[celula++].Value = movimento.Origem;
+                   cidades.PosicionarEm(movimento.Origem);
+                    dgvCaminhosEncontrados.Rows[0].Cells[celula++].Value = cidades.DadoAtual().Nome;
                 }
-
-                dgvCaminhosEncontrados.Rows[0].Cells[celula].Value = destino;
+                cidades.PosicionarEm(destino);
+                dgvCaminhosEncontrados.Rows[0].Cells[celula].Value = cidades.DadoAtual().Nome;
             }
         }
     }
