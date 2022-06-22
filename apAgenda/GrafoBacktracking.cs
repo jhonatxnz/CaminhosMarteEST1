@@ -32,7 +32,7 @@ namespace apCaminhos
             //{
             //    TextReader Leitor = new StreamReader(nomeArquivo, true);//Inicializa o Leitor
             //    int Linhas = 0;
-            //    while (Leitor.Peek() != -1)
+            //    while (Leitor.Peek() != -1) dos crias
             //    {//Enquanto o arquivo não acabar, o Peek não retorna -1 sendo adequando para o loop while...
             //        Linhas++;//Incrementa 1 na contagem
             //        Leitor.ReadLine();//Avança uma linha no arquivo
@@ -41,7 +41,22 @@ namespace apCaminhos
             //    return Linhas;
             //}
         }
-         
+        public GrafoBackTracking(ListaDupla<Cidade> cidade, ListaDupla<Ligacao> lig)
+        {
+            matriz = new int[cidade.Tamanho, cidade.Tamanho];
+
+            lig.PosicionarNoPrimeiro();
+
+            while(lig.DadoAtual() != null)
+            {
+                matriz[int.Parse(lig.DadoAtual().IdCidadeOrigem),
+                       int.Parse(lig.DadoAtual().IdCidadeDestino)] = lig.DadoAtual().Distancia;
+
+                lig.AvancarPosicao();
+            }
+
+        }
+
         public char TipoGrafo { get => tipoGrafo; set => tipoGrafo = value; }
         public int QtasCidades { get => qtasCidades; set => qtasCidades = value; }
         public int[,] Matriz { get => matriz; set => matriz = value; }

@@ -35,7 +35,10 @@ namespace apCaminhos
                 //exibe  os dados nos cbxDestino
                 cidades.ExibirDados(cbxOrigem);
                 //exibe  os dados nos cbxDestino
-                cidades.ExibirDados(cbxDestino);        
+                cidades.ExibirDados(cbxDestino);
+
+                cbxOrigem.Text = "Cidade";
+                cbxDestino.Text = "Destino";
             }
 
             //abrindo arquivo de caminhos entre cidades
@@ -43,9 +46,10 @@ namespace apCaminhos
             {
                 //le os dados do arquivo de caminhos entre cidades
                 caminhos.LerDados(dlgAbrirDois.FileName);
-                oGrafo = new GrafoBackTracking(dlgAbrirDois.FileName,cidades.Tamanho);
+                oGrafo = new GrafoBackTracking(cidades,caminhos);
 
             }
+
         }
 
         private void pbMarte_Paint(object sender, PaintEventArgs e)
@@ -69,6 +73,9 @@ namespace apCaminhos
                 e.Graphics.DrawString(cidade.Nome, font, Brushes.Black, x, y + 10);
                 //udX.Text = x.ToString();
                 //udY.Text = y.ToString();
+                Pen redPen = new Pen(Color.Red, 1);
+                e.Graphics.DrawLine(redPen, (int)(cidade.X), (int)(cidade.Y), x,y);
+
                 cidades.AvancarPosicao(); //avança posicão
             }
             // posiciona no primeiro novamente por conta de um erro que tivemos 
@@ -77,7 +84,25 @@ namespace apCaminhos
 
         private void btnCaminhos_Click(object sender, EventArgs e)
         {
+            int origem = int.Parse(cbxOrigem.Text.Substring(0, 3));
+            int destino = int.Parse(cbxDestino.Text.Substring(0, 3));
 
+
+            var pilhaCaminho = oGrafo.BuscarCaminho(origem, destino, dgvMelhorCaminho,
+            dgvCaminhosEncontrados);
+            if (pilhaCaminho.EstaVazia)
+            {
+                MessageBox.Show("Não achou caminho");
+            }
+            else
+            {
+                MessageBox.Show("Achou caminho");
+                oGrafo.Exibir(dgvCaminhosEncontrados);
+                while (!pilhaCaminho.EstaVazia)
+                {
+                    var mov = pilhaCaminho.Desempilhar();
+                }
+            }
         }
     }
 }
