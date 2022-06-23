@@ -61,53 +61,69 @@ namespace apCaminhos
                 //multiplica o valor de Y pela altura do pictureBox
                 int x = (int)(cidade.X * pbMarte.Width); 
                 int y = (int)(cidade.Y * pbMarte.Height);
+               
                 //pinta X e Y no pictureBox
                 e.Graphics.FillEllipse(Brushes.Black, new Rectangle(x, y, 10, 10));
+                
                 //escreve o nome da cidade no pictureBox(y + 10 para o nome da cidade não ficar em cima da bolinha
                 e.Graphics.DrawString(cidade.Nome, font, Brushes.Black, x, y + 10);
+                
                 //udX.Text = x.ToString();
                 //udY.Text = y.ToString();
+                
                 Pen redPen = new Pen(Color.Purple, 2);
                 e.Graphics.DrawLine(redPen, (int)(cidade.X), (int)(cidade.Y), x,y);
 
-                cidades.AvancarPosicao(); //avança posicão
-            }
-            // posiciona no primeiro novamente por conta de um erro que tivemos 
-            cidades.PosicionarNoPrimeiro();
+                //avança posicão
+                cidades.AvancarPosicao();             }
         }
 
         private void btnCaminhos_Click(object sender, EventArgs e)
         {
+            //origem recebe apenas o codigo que está escrito no cbx
             int origem = int.Parse(cbxOrigem.Text.Substring(0, 3));
+            //destino recebe apenas o codigo que está escrito no cbx
             int destino = int.Parse(cbxDestino.Text.Substring(0, 3));
 
-            var pilhaCaminho = oGrafo.BuscarCaminho(origem, destino, dgvMelhorCaminho, dgvCaminhosEncontrados);
-
-            if (pilhaCaminho.EstaVazia)
+            
+            //se usuário colocou cidade de destino e origem iguais
+            if (origem.CompareTo(destino) == 0)
             {
-                MessageBox.Show("Não achou caminho");
+                MessageBox.Show("Erro!\nCidade de origem igual cidade de destino");
             }
             else
             {
-                MessageBox.Show("Achou caminho");
 
-                int celula = 0;
+                var pilhaCaminho = oGrafo.BuscarCaminho(origem, destino, dgvMelhorCaminho, dgvCaminhosEncontrados);
 
-                var pilhaInvertida = new PilhaVetor<Movimento>();
-
-                foreach (var movimento in pilhaCaminho.DadosDaPilha())
+                if (pilhaCaminho.EstaVazia)
                 {
-                   pilhaInvertida.Empilhar(pilhaCaminho.Desempilhar());
+                    MessageBox.Show("Não achou caminho");
+                }
+                else
+                {
+                    MessageBox.Show("Achou caminho");
 
-                   cidades.PosicionarEm(movimento.Origem);
-                   dgvCaminhosEncontrados.Rows[0].Cells[celula++].Value = cidades.DadoAtual().Nome;
+                    int celula = 0;
+
+                    var pilhaInvertida = new PilhaVetor<Movimento>();
+
+                    //foreach que inverte a pilha
+                    foreach (var movimento in pilhaCaminho.DadosDaPilha())
+                    {
+                        pilhaInvertida.Empilhar(pilhaCaminho.Desempilhar());
+                    }
+
+                    foreach (var movimento2 in pilhaInvertida.DadosDaPilha())
+                    {
+                        cidades.PosicionarEm(movimento2.Origem);
+                        dgvCaminhosEncontrados.Rows[0].Cells[celula++].Value = cidades.DadoAtual().Nome;
+                    }
+
+                    cidades.PosicionarEm(destino);
+                    dgvCaminhosEncontrados.Rows[0].Cells[celula].Value = cidades.DadoAtual().Nome;
 
                 }
-
-                cidades.PosicionarEm(destino);
-                dgvCaminhosEncontrados.Rows[0].Cells[celula].Value = cidades.DadoAtual().Nome;
-
-
             }
         }
     }

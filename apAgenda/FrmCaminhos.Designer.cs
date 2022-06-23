@@ -55,15 +55,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.lbMelhorCaminho = new System.Windows.Forms.Label();
             this.dgvCaminhosEncontrados = new System.Windows.Forms.DataGridView();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvMelhorCaminho = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCaminhos = new System.Windows.Forms.Button();
@@ -79,6 +70,15 @@
             this.cbxOrigem = new System.Windows.Forms.ComboBox();
             this.lbKmCaminhoSelecionado = new System.Windows.Forms.Label();
             this.dlgAbrirDois = new System.Windows.Forms.OpenFileDialog();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1.SuspendLayout();
             this.Caminhos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMarte)).BeginInit();
@@ -323,51 +323,6 @@
             this.dgvCaminhosEncontrados.Size = new System.Drawing.Size(1323, 121);
             this.dgvCaminhosEncontrados.TabIndex = 32;
             // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "1a";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "2a";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "3a";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "4a";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "5a";
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "6a";
-            this.Column7.Name = "Column7";
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "7a";
-            this.Column8.Name = "Column8";
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "8a";
-            this.Column9.Name = "Column9";
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "9a";
-            this.Column10.Name = "Column10";
-            // 
             // dgvMelhorCaminho
             // 
             this.dgvMelhorCaminho.AllowUserToDeleteRows = false;
@@ -504,6 +459,60 @@
             this.dlgAbrirDois.DefaultExt = "*.txt";
             this.dlgAbrirDois.InitialDirectory = "c:\\temp";
             // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "1a";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 140;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "2a";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 140;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "3a";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 140;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "4a";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 140;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "5a";
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 140;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "6a";
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 140;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "7a";
+            this.Column8.Name = "Column8";
+            this.Column8.Width = 140;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "8a";
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 140;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "9a";
+            this.Column10.Name = "Column10";
+            this.Column10.Width = 140;
+            // 
             // FrmCaminhos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -587,16 +596,16 @@
     private System.Windows.Forms.ComboBox cbxOrigem;
     private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     private System.Windows.Forms.Label lbKmCaminhoSelecionado;
-    private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-    private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-    private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-    private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-    private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-    private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-    private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-    private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-    private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.OpenFileDialog dlgAbrirDois;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
     }
 }
 
