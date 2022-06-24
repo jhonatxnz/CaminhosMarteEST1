@@ -105,24 +105,37 @@ namespace apCaminhos
                     MessageBox.Show("Achou caminho");
 
                     int celula = 0;
-
+                    int somaDistancias = 0;
                     var pilhaInvertida = new PilhaVetor<Movimento>();
+
 
                     //foreach que inverte a pilha
                     foreach (var movimento in pilhaCaminho.DadosDaPilha())
                     {
+
+                        caminhos.PosicionarEm(movimento.Origem);
+                        
+                        somaDistancias += caminhos.DadoAtual().Distancia;
+                        
                         pilhaInvertida.Empilhar(pilhaCaminho.Desempilhar());
                     }
 
                     foreach (var movimento2 in pilhaInvertida.DadosDaPilha())
                     {
                         cidades.PosicionarEm(movimento2.Origem);
+                        
                         dgvCaminhosEncontrados.Rows[0].Cells[celula++].Value = cidades.DadoAtual().Nome;
+
+                        
                     }
 
                     cidades.PosicionarEm(destino);
-                    dgvCaminhosEncontrados.Rows[0].Cells[celula].Value = cidades.DadoAtual().Nome;
+                    caminhos.PosicionarEm(destino);
+                    somaDistancias += caminhos.DadoAtual().Distancia;
+                    lbDistCmEscolhido.Text = somaDistancias.ToString();
 
+                    dgvCaminhosEncontrados.Rows[0].Cells[celula].Value = cidades.DadoAtual().Nome;
+                   
                 }
             }
         }
