@@ -56,7 +56,6 @@ namespace apCaminhos
 
                 lig.AvancarPosicao();
             }
-
         }
 
         public char TipoGrafo { get => tipoGrafo; set => tipoGrafo = value; }
@@ -119,7 +118,7 @@ namespace apCaminhos
                             Movimento movim = new Movimento(cidadeAtual, saidaAtual);
                             pilha.Empilhar(movim);
                             achouCaminho = true;
-
+                            //AQUI
                         }
                         else
                         {
@@ -151,6 +150,7 @@ namespace apCaminhos
                 {
                     Movimento movim = pilha.Desempilhar();
                     saida.Empilhar(movim);
+                    //TALVEZ AQUI
                 }
             }
             return saida;

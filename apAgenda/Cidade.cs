@@ -16,14 +16,14 @@ namespace apCaminhos
                   iniY = iniX + tamX;
 
         string codigo, nome;
-        decimal x, y;
+        float x, y;
 
         public string Codigo { get => codigo; set => codigo = value.PadLeft(tamCodigo, '0').Substring(0, tamCodigo); }
         public string Nome { get => nome; set => nome = value.PadRight(tamCodigo, ' ').Substring(0, tamNome); }
-        public decimal X { get => x; set => x = value; }
-        public decimal Y { get => y; set => y = value; }
+        public float X { get => x; set => x = value; }
+        public float Y { get => y; set => y = value; }
 
-        public Cidade(string codigo, string nome, decimal x, decimal y)
+        public Cidade(string codigo, string nome, float x, float y)
         {
             Codigo = codigo;
             Nome = nome;
@@ -35,7 +35,7 @@ namespace apCaminhos
 
         public int CompareTo(Cidade outro)
         {
-            return codigo.ToUpperInvariant().CompareTo(outro.codigo.ToUpperInvariant());
+            return nome.ToUpperInvariant().CompareTo(outro.nome.ToUpperInvariant());
         }
 
         public Cidade LerRegistro(StreamReader arquivo)
@@ -45,8 +45,8 @@ namespace apCaminhos
                 string linha = arquivo.ReadLine();
                 Codigo = linha.Substring(iniCodigo, tamCodigo);
                 Nome = linha.Substring(iniNome, tamNome);
-                X = decimal.Parse(linha.Substring(iniX, tamX));
-                Y = decimal.Parse(linha.Substring(iniY));
+                X = float.Parse(linha.Substring(iniX, tamX));
+                Y = float.Parse(linha.Substring(iniY));
                 return this; // retorna o próprio objeto Contato, com os dados
             }
             return default(Cidade);
@@ -66,7 +66,7 @@ namespace apCaminhos
 
         public override string ToString()
         {
-            return Codigo +  Nome;
+            return Nome;
         }
     }
 }
