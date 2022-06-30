@@ -153,7 +153,7 @@ namespace apCaminhos
                         int linha = 0;
 
                         dgvMelhorCaminho.Rows.Clear();
-                        dgvMelhorCaminho.RowCount = pilhaInvertida.Tamanho + 1;
+                        dgvMelhorCaminho.RowCount = pilhaInvertida.Tamanho + 1;\
 
                         foreach (Movimento mov in pilhaInvertida.DadosDaPilha())
                         {
