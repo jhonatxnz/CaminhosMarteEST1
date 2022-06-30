@@ -61,7 +61,7 @@ namespace apCaminhos
         public char TipoGrafo { get => tipoGrafo; set => tipoGrafo = value; }
         public int QtasCidades { get => qtasCidades; set => qtasCidades = value; }
         public int[,] Matriz { get => matriz; set => matriz = value; }
-        /* public void Exibir(DataGridView dgv)
+        public void Exibir(DataGridView dgv)
         {
             dgv.RowCount = dgv.ColumnCount = qtasCidades;
             for (int coluna = 0; coluna < qtasCidades; coluna++)
@@ -74,7 +74,7 @@ namespace apCaminhos
                 for (int coluna = 0; coluna < qtasCidades; coluna++)
                     if (matriz[linha, coluna] != 0)
                         dgv[coluna, linha].Value = matriz[linha, coluna];
-        } */
+        }
 
         public PilhaVetor<Movimento> BuscarCaminho(int origem, int destino,
           DataGridView dgvGrafo,
@@ -92,7 +92,7 @@ namespace apCaminhos
             saidaAtual = 0;
             var pilha = new PilhaVetor<Movimento>(qtasCidades);
 
-            while (!achouCaminho && !naoTemSaida)
+            while (!achouCaminho && !naoTemSaida)//tirar !achouCaminho // desempilhar e tacar false na cidade
             {
                 naoTemSaida = (cidadeAtual == origem && saidaAtual == qtasCidades && pilha.EstaVazia);
 
@@ -154,6 +154,12 @@ namespace apCaminhos
                 }
             }
             return saida;
+            void ExibirUmPasso()
+            {
+                dgvGrafo.CurrentCell = dgvGrafo[saidaAtual, cidadeAtual];
+                Exibir(dgvPilha);
+                Thread.Sleep(1000);
+            }
         }
     }
 }

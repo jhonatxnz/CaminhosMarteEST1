@@ -121,7 +121,7 @@ namespace apCaminhos
                     var pilhaInvertida = new PilhaVetor<Movimento>();
 
 
-                    //foreach que inverte a pilha
+                    //foreach que inverte a pilha ???????
                     foreach (var movimento in pilhaCaminho.DadosDaPilha())
                     {
 
@@ -148,31 +148,53 @@ namespace apCaminhos
 
                     dgvCaminhosEncontrados.Rows[0].Cells[celula].Value = cidades.DadoAtual().Nome;
 
+                    if (!pilhaInvertida.EstaVazia)
+                    {
+                        int linha = 0;
+
+                        dgvMelhorCaminho.Rows.Clear();
+                        dgvMelhorCaminho.RowCount = pilhaInvertida.Tamanho + 1;
+
+                        foreach (Movimento mov in pilhaInvertida.DadosDaPilha())
+                        {
+                            cidades.PosicionarEm(mov.Origem);
+
+                            var cidade = cidades.DadoAtual();
+
+                            dgvMelhorCaminho.Rows[linha++].Cells[0].Value = cidade.Nome;
+                        }
+
+                        cidades.PosicionarEm(destino);
+                        dgvMelhorCaminho.Rows[linha].Cells[0].Value = cidades.DadoAtual().Nome;
+                    }
                 }
                 
             }
-            //if (cidades.Existe(new Cidade("000", cbxOrigem.Text, 0, 0), out _) && cidades.Existe(new Cidade("000", cbxDestino.Text, 0, 0), out _))
-            //{
-            //    origem = int.Parse(cidades.DadoAtual().Codigo);
-            //    destino = int.Parse(cidades.DadoAtual().Codigo);
+            if (cidades.Existe(new Cidade("000", cbxOrigem.Text, 0, 0), out _) && cidades.Existe(new Cidade("000", cbxDestino.Text, 0, 0), out _))
+            {
+                origem = int.Parse(cidades.DadoAtual().Codigo);
+                destino = int.Parse(cidades.DadoAtual().Codigo);
 
-            //    var cid0 = CidadeId(origem);
-            //    var cid1 = CidadeId(destino);
+                var cid0 = CidadeId(origem);
+                var cid1 = CidadeId(destino);
 
-            //    g.DrawLine(new Pen(Color.Red, 1) , cid0.X,cid0.Y,cid1.X,cid1.Y);
-
-
-            //}
+                g.DrawLine(new Pen(Color.Red, 1), cid0.X, cid0.Y, cid1.X, cid1.Y);
+                pbMarte.Refresh();
+            }
         }
         Cidade CidadeId(int cod)
         {
             cidades.PosicionarNoPrimeiro();
             while (cidades.DadoAtual() != null)
             {
-                if (cod.CompareTo(cidades.DadoAtual().Codigo) == 0)
-                {
+                if (int.Parse(cidades.DadoAtual().Codigo) == cod) {
                     return cidades.DadoAtual();
+
                 }
+                //if (cod.CompareTo(cidades.DadoAtual().Codigo) == 0)
+                //{
+                //    return cidades.DadoAtual();
+                //}
                 cidades.AvancarPosicao();
             }
             return default(Cidade);
